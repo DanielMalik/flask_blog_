@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet", type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    {% block head %} {% endblock %}
+    <title>{% block title %} {% endblock %} Nola flask blog</title>
+</head>
+<body>
+    {% if user %}
+    <h1>Hello {{ user }}</h1>
+    <h2><a href="{{ url_for('show_entries') }}">READ</a></h2>
+    {% else %}
+    <h1>Hello, Please <a href="{{ url_for('login')}}">log in</a></h1>
+
+    {% endif%}
+
+    {% block content %} {% endblock %}
+
+    <div id="footer">
+      {% block footer %}     {% endblock %}
+      &copy; Copyright 2017 by <a href="https://danielmalik.github.io/Orbit-Theme/index.html">DanielMalikPL</a>.
+
+    </div>
+
+</body>
+</html>

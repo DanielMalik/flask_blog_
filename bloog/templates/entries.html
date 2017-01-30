@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+{% block head %} {% endblock %}
+
+{% block title %} entries from db {% endblock %}
+
+{% block content %}
+    <table>
+        {% for e in entries %}
+
+            <tr>
+                <td> {{ e.id }}</td>
+                <td> {{ e.title }}</td>
+                <td> {{ e.text }}</td>
+            </tr>
+        {% else %}
+
+            <tr><td>Unbelievable. No entries here so far</td></tr>
+
+        {% endfor %}
+
+    </table>
+{% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Title:
+        <dd><input type=text size=30 name=title>
+        <dt>Text:
+        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+{% endif %}
+
+{% endblock %}
+
+{% block footer %} {% endblock %}
