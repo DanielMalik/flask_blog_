@@ -51,19 +51,22 @@ def main():
 
 @app.route('/read')
 def show_entries():
-    db = get_db()
-    cur = db.execute('select title, text from entries order by id desc')
-    entries = cur.fetchall()
-    user = escape(session['username'])
-    return render_template('entries.html', entries=entries, user=user)
+    if session.get('logged_in'):
+        db = get_db()
+        cur = db.execute('select title, text, link from entries order by id desc')
+        entries = cur.fetchall()
+        user = escape(session['username'])
+        return render_template('entries.html', entries=entries, user=user)
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/add', methods=['POST'])
 def add_entry():
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    db.execute('insert into entries (title, text) values (?, ?)',
-                 [request.form['title'], request.form['text']])
+    db.execute('insert into entries (title, text, link) values (?, ?, ?)',
+                 [request.form['title'], request.form['text'], request.form['link']])
     db.commit()
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))

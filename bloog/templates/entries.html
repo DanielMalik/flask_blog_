@@ -12,6 +12,7 @@
                 <td> {{ e.id }}</td>
                 <td> {{ e.title }}</td>
                 <td> {{ e.text }}</td>
+                <td> {{ e.link }}</td>
             </tr>
         {% else %}
 
@@ -27,6 +28,8 @@
         <dd><input type=text size=30 name=title>
         <dt>Text:
         <dd><textarea name=text rows=5 cols=40></textarea>
+        <dt>Link:
+        <dd><input type=text size=30 name=link>
         <dd><input type=submit value=Share>
       </dl>
     </form>
