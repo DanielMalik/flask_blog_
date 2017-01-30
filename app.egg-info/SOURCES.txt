@@ -1,0 +1,12 @@
+MANIFEST.in
+app.egg-info/PKG-INFO
+app.egg-info/SOURCES.txt
+app.egg-info/dependency_links.txt
+app.egg-info/requires.txt
+app.egg-info/top_level.txt
+bloog/__init__.py
+bloog/app.py
+bloog/schema.sql
+bloog/static/style.css
+bloog/templates/login.html
+bloog/templates/main.html

@@ -75,9 +75,9 @@ def login():
 
         return render_template('login.html')
     elif request.method == 'POST':
-        if request.form['username'] != app.config['USERNAME']:
+        if request.form['username'] != 'admin':
             error = 'Wrong user'
-        elif request.form['password'] != app.config['PASSWORD']:
+        elif request.form['password'] != 'admin':
             error = 'Wrong password'
         else:
             session['username'] = request.form['username']

@@ -1,0 +1,3 @@
+graft bloog/templates
+graft bloog/static
+include bloog/schema.sql
