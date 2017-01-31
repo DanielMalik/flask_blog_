@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block head %} {% endblock %}
+
+{% block title %} Registration page {% endblock %}
+
+{% block content %}
+<div>
+    <h1> Registration: </h1>
+
+    <form action="#" method="POST">
+        <h4> Name: {{ form.username }}</h4>
+        <h4> e-mail: {{ form.email }}</h4>
+            <p> password: {{ form.password }}</p>
+            <p> repeat: {{ form.confirm }}</p>
+            <p> DO you accept everything?: {{ form.accept_tos }}</p>
+            <p> do You know the secret?: {{ form.secret  }}</p>
+        <button class="btn btn-primary" type="submit">REGISTER</button>
+
+        {% if errors %}
+             <ul class=errors>
+                 {% for error in errors %}
+                    <li>{{ error }}</li>
+                 {% endfor %}
+             </ul>
+        {% endif %}
+
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %} {% endblock %}

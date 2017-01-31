@@ -18,6 +18,7 @@
     <h2><a href="{{ url_for('show_entries') }}">READ</a></h2>
     {% else %}
     <h1>Hello, Please <a href="{{ url_for('login')}}">log in</a></h1>
+    <h3>...or <a href="{{ url_for('register')}}">register</a></h3>
 
     {% endif%}
 
