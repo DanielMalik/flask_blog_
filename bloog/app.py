@@ -144,10 +144,7 @@ def register():
         mail = request.form['email']
         password = request.form['password']
         secret = request.form['secret']
-        db = get_db()
-        cur = db.execute('select name from users')
-        all_users = cur.fetchall()
-        if user not in all_users:
+        if isuser(user) == []:
             if secret == secret_value:
                 admin = 1
 
